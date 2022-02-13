@@ -15,11 +15,13 @@ export class XhrInterceptor implements HttpInterceptor {
     this.user = JSON.parse(sessionStorage.getItem('userdetails'));
     if(this.user && this.user.password && this.user.email){
       httpHeaders = httpHeaders.append('Authorization', 'Basic ' + btoa(this.user.email + ':' + this.user.password));
+    }else{
+      let authorization = sessionStorage.getItem('Authorization');
+      if(authorization){
+        httpHeaders = httpHeaders.append('Authorization', authorization);  
+      }
     }
-    let authorization = sessionStorage.getItem('Authorization');
-    if(authorization){
-      httpHeaders = httpHeaders.append('Authorization', authorization);  
-    }
+    
     httpHeaders = httpHeaders.append('X-Requested-With', 'XMLHttpRequest');
     const xhr = req.clone({
       headers: httpHeaders
