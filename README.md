@@ -1,6 +1,6 @@
 # Spring Security Zero to Master along with JWT,OAUTH2
 
-[![Image](https://img-c.udemycdn.com/redactor/raw/article_lecture/2021-09-21_14-58-17-24cb5fc2a3b0276e90c7775fdb8bdab0.JPG "Spring Security Zero to Master along with JWT,OAUTH2")](https://www.udemy.com/course/spring-security-zero-to-master/?referralCode=87DD08821FF0A3685D1C)
+[![Image](https://img-c.udemycdn.com/redactor/raw/article_lecture/2022-03-30_15-57-44-f567c30b13bb3daa16d77073ba758bd7.jpg "Spring Security Zero to Master along with JWT,OAUTH2")](https://www.udemy.com/course/spring-security-zero-to-master/?referralCode=87DD08821FF0A3685D1C)
 
 'Spring Security Zero to Master' course will help in understanding the Spring Security Architecture, important packages, interfaces, classes inside it which handles authentication and authorization requests in the web applications. It also covers most common security related topics like CORs, CSRF, JWT, OAUTH2, password management, method level security, user, roles & authorities management inside web applications.
 
