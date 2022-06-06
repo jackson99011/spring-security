@@ -14,7 +14,7 @@ public class ProjectSecurityConfig  {
 	 * to move towards a component-based security configuration. It is recommended to create a bean
 	 * of type SecurityFilterChain for security related configurations.
 	 * @param http
-	 * @return
+	 * @return SecurityFilterChain
 	 * @throws Exception
 	 */
 	@Bean
