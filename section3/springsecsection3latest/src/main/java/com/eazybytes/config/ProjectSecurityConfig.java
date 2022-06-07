@@ -81,7 +81,7 @@ public class ProjectSecurityConfig {
     }*/
 
     /**
-     * NoOpPasswordEncoder is not recommended for prod usage.
+     * NoOpPasswordEncoder is not recommended for production usage.
      * Use only for non-prod.
      *
      * @return
