@@ -16,7 +16,8 @@ public class ProjectSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	/**
 	 * /myAccount - Secured /myBalance - Secured /myLoans - Secured /myCards -
-	 * Secured /notices - Not Secured /contact - Not Secured
+	 * Secured /notices - Not Secured 
+	 * /contact - Not Secured
 	 */
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
