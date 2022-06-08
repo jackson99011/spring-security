@@ -8,6 +8,7 @@ class EazyBankBackendApplicationTests {
 
 	@Test
 	void contextLoads() {
+		
 	}
 
 }
