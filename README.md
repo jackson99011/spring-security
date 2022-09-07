@@ -25,4 +25,4 @@
 ## Pre-requisite for the course
 - Good understanding on Java and Spring concepts
 - Basic understanding on SpringBoot & REST services is a bonus but not mandatory
-- Interest to learn and explore about Microservices
+- Interest to learn and explore about Spring Security
