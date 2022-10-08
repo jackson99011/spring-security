@@ -8,6 +8,11 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+/**
+ *
+ * 自定義登入使用者資訊
+ * 資料庫紀錄
+ */
 public class SecurityCustomer implements UserDetails {
 
 	/**

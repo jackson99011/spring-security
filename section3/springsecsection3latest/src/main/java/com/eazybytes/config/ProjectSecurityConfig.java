@@ -1,11 +1,14 @@
 package com.eazybytes.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.Customizer;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -18,6 +21,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import javax.sql.DataSource;
 
 @Configuration
+@EnableWebSecurity
 public class ProjectSecurityConfig {
 
     /**
@@ -43,42 +47,47 @@ public class ProjectSecurityConfig {
 
     }
 
-    /*@Bean
-    public InMemoryUserDetailsManager userDetailsService() {
+//    @Bean
+//    public InMemoryUserDetailsManager userDetailsService() {
+//        /**
+//     * Approach 1 where we use withDefaultPasswordEncoder() method
+//     * while creating the user details
+//     * 定義使用者帳號
+//     */
+//     UserDetails admin = User.withDefaultPasswordEncoder()
+//                .username("admin")
+//                .password("12345")
+//                .authorities("admin")
+//                .build();
+//        UserDetails user = User.withDefaultPasswordEncoder()
+//                .username("user")
+//                .password("12345")
+//                .authorities("read")
+//                .build();
+//        return new InMemoryUserDetailsManager(admin, user);
+//
+//     /**
+//     * Approach 2 where we don't define password encoder
+//     * while creating the user details. Instead a separate
+//     * PasswordEncoder bean will be created.
+//     */
+////        InMemoryUserDetailsManager userDetailsService = new InMemoryUserDetailsManager();
+////        UserDetails admin = User.withUsername("admin").password("12345").authorities("admin").build();
+////        UserDetails user = User.withUsername("user").password("12345").authorities("read").build();
+////        userDetailsService.createUser(admin);
+////        userDetailsService.createUser(user);
+////        return userDetailsService;
+//    }
 
-        *//**
-     * Approach 1 where we use withDefaultPasswordEncoder() method
-     * while creating the user details
-     *//*
-     *//*UserDetails admin = User.withDefaultPasswordEncoder()
-                .username("admin")
-                .password("12345")
-                .authorities("admin")
-                .build();
-        UserDetails user = User.withDefaultPasswordEncoder()
-                .username("user")
-                .password("12345")
-                .authorities("read")
-                .build();
-        return new InMemoryUserDetailsManager(admin, user);*//*
-
-     *//**
-     * Approach 2 where we don't define password encoder
-     * while creating the user details. Instead a separate
-     * PasswordEncoder bean will be created.
-     *//*
-        InMemoryUserDetailsManager userDetailsService = new InMemoryUserDetailsManager();
-        UserDetails admin = User.withUsername("admin").password("12345").authorities("admin").build();
-        UserDetails user = User.withUsername("user").password("12345").authorities("read").build();
-        userDetailsService.createUser(admin);
-        userDetailsService.createUser(user);
-        return userDetailsService;
-    }*/
-
-    /*@Bean
+    /**
+     * loading by database
+     * @param dataSource
+     * @return
+     */
+    @Bean
     public UserDetailsService userDetailsService(DataSource dataSource) {
 	  return new JdbcUserDetailsManager(dataSource);
-    }*/
+    }
 
     /**
      * NoOpPasswordEncoder is not recommended for production usage.

@@ -36,11 +36,11 @@ public class ProjectSecurityConfig  {
 		 * Custom configurations as per our requirement
 		 * 設定驗證依照路徑
 		 */
-//		http.authorizeHttpRequests( (auth)->auth
-//				.antMatchers("/myAccount","/myBalance","/myLoans","/myCards").authenticated()
-//				.antMatchers("/notices","/contact").permitAll()
-//		).httpBasic(Customizer.withDefaults());
-//		return http.build();
+		http.authorizeHttpRequests( (auth)->auth
+				.antMatchers("/myAccount","/myBalance","/myLoans","/myCards").authenticated()
+				.antMatchers("/notices","/contact").permitAll()
+		).httpBasic(Customizer.withDefaults());
+		return http.build();
 
 		/**
 		 * Configuration to deny all the requests
@@ -55,10 +55,10 @@ public class ProjectSecurityConfig  {
 		 * Configuration to permit all the requests
 		 * 同意所有連線
 		 */
-		http.authorizeHttpRequests( (auth)->auth
-						.anyRequest().permitAll())
-				.httpBasic(Customizer.withDefaults());
-		return http.build();
+//		http.authorizeHttpRequests( (auth)->auth
+//						.anyRequest().permitAll())
+//				.httpBasic(Customizer.withDefaults());
+//		return http.build();
 	}
 
 }
