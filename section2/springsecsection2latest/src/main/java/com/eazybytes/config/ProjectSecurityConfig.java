@@ -4,9 +4,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
+@EnableWebSecurity
 public class ProjectSecurityConfig  {
 
 	/**
@@ -22,6 +24,7 @@ public class ProjectSecurityConfig  {
 
 		/**
 		 * Default configurations which will secure all the requests
+		 * 表定全部都驗證
 		 */
 		/*((ExpressionUrlAuthorizationConfigurer.AuthorizedUrl)http.authorizeRequests().anyRequest()).
 				authenticated();
@@ -31,28 +34,31 @@ public class ProjectSecurityConfig  {
 
 		/**
 		 * Custom configurations as per our requirement
+		 * 設定驗證依照路徑
 		 */
-		http.authorizeHttpRequests( (auth)->auth
-				.antMatchers("/myAccount","/myBalance","/myLoans","/myCards").authenticated()
-				.antMatchers("/notices","/contact").permitAll()
-		).httpBasic(Customizer.withDefaults());
-		return http.build();
+//		http.authorizeHttpRequests( (auth)->auth
+//				.antMatchers("/myAccount","/myBalance","/myLoans","/myCards").authenticated()
+//				.antMatchers("/notices","/contact").permitAll()
+//		).httpBasic(Customizer.withDefaults());
+//		return http.build();
 
 		/**
 		 * Configuration to deny all the requests
+		 * 拒絕所有連線
 		 */
-		/*http.authorizeHttpRequests( (auth)->auth
-				.anyRequest().denyAll())
-				.httpBasic(Customizer.withDefaults());
-		return http.build();*/
+//		http.authorizeHttpRequests( (auth)->auth
+//				.anyRequest().denyAll())
+//				.httpBasic(Customizer.withDefaults());
+//		return http.build();
 
 		/**
 		 * Configuration to permit all the requests
+		 * 同意所有連線
 		 */
-		/*http.authorizeHttpRequests( (auth)->auth
+		http.authorizeHttpRequests( (auth)->auth
 						.anyRequest().permitAll())
 				.httpBasic(Customizer.withDefaults());
-		return http.build();*/
+		return http.build();
 	}
 
 }
