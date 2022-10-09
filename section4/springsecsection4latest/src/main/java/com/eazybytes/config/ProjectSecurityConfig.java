@@ -6,6 +6,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -19,6 +20,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import javax.sql.DataSource;
 
 @Configuration
+@EnableWebSecurity
 public class ProjectSecurityConfig {
 
     /**
@@ -38,14 +40,19 @@ public class ProjectSecurityConfig {
          */
         http.authorizeHttpRequests((auth) -> auth
                 .antMatchers("/myAccount", "/myBalance", "/myLoans", "/myCards").authenticated()
-                .antMatchers("/notices", "/contact").permitAll()
+                .antMatchers("/notices", "/contact","/register").permitAll()
         ).httpBasic(Customizer.withDefaults());
         return http.build();
 
     }
 
+    /**
+     * 密碼編碼
+     * @return
+     */
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+        //密碼為明文
+        return NoOpPasswordEncoder.getInstance();
     }
 }
